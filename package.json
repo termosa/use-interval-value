@@ -1,6 +1,6 @@
 {
   "name": "use-interval-value",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate new values at intervals",
   "author": "Stanislav Termosa <termosa.stanislav@gmail.com> (https://me.st/)",
   "license": "MIT",
