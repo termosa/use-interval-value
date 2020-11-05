@@ -1,4 +1,4 @@
-import { useMyHook } from './'
+import useIntervalValue from './'
 import { renderHook, act } from "@testing-library/react-hooks";
 
 // mock timer using jest
@@ -6,7 +6,8 @@ jest.useFakeTimers();
 
 describe('useMyHook', () => {
   it('updates every second', () => {
-    const { result } = renderHook(() => useMyHook());
+    let counter = 0;
+    const { result } = renderHook(() => useIntervalValue(1e3, () => counter++));
 
     expect(result.current).toBe(0);
 

@@ -1,23 +1,30 @@
 import * as React from 'react';
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState<{
-    counter: number;
-  }>({
-    counter: 0
-  });
+const noop = () => {};
+
+export const useIntervalValue: UseIntervalValue = (ms, callback, paused = false) => {
+  const [lastValue, setValue] = React.useState(() => callback(noop));
 
   React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++;
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
+    let intervalId: number;
+    const clearInterval = () => window.clearInterval(intervalId);
+    intervalId = window.setInterval(() => {
+      if (paused) return;
+      const newValue = callback(clearInterval);
+      if (newValue !== lastValue) setValue(newValue);
+    }, ms);
+    return clearInterval;
+  }, [ms, callback]);
 
-  return counter;
+  return lastValue;
 };
+
+export default useIntervalValue;
+
+interface UseIntervalValue {
+  <T>(ms: number, fn: IntervalCallback<T>, paused?: boolean): T
+}
+
+export interface IntervalCallback<T> {
+  (clearInterval: () => void): T
+}
