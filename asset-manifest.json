@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/use-interval-value/static/css/main.2c6a48fe.chunk.css",
+    "main.js": "/use-interval-value/static/js/main.f08929eb.chunk.js",
+    "main.js.map": "/use-interval-value/static/js/main.f08929eb.chunk.js.map",
+    "runtime-main.js": "/use-interval-value/static/js/runtime-main.449f9eca.js",
+    "runtime-main.js.map": "/use-interval-value/static/js/runtime-main.449f9eca.js.map",
+    "static/js/2.3200cd80.chunk.js": "/use-interval-value/static/js/2.3200cd80.chunk.js",
+    "static/js/2.3200cd80.chunk.js.map": "/use-interval-value/static/js/2.3200cd80.chunk.js.map",
+    "index.html": "/use-interval-value/index.html",
+    "precache-manifest.c3c72f8f5927b7ae3c311e4a908d7603.js": "/use-interval-value/precache-manifest.c3c72f8f5927b7ae3c311e4a908d7603.js",
+    "service-worker.js": "/use-interval-value/service-worker.js",
+    "static/css/main.2c6a48fe.chunk.css.map": "/use-interval-value/static/css/main.2c6a48fe.chunk.css.map",
+    "static/js/2.3200cd80.chunk.js.LICENSE.txt": "/use-interval-value/static/js/2.3200cd80.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.449f9eca.js",
+    "static/js/2.3200cd80.chunk.js",
+    "static/css/main.2c6a48fe.chunk.css",
+    "static/js/main.f08929eb.chunk.js"
+  ]
+}
