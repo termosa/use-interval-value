@@ -32,27 +32,26 @@ import * as React from 'react'
 
 import useIntervalValue, { IntervalCallback } from 'use-interval-value'
 
-const second = 1e3;
-const minute = second * 60;
-const hour = minute * 60;
+const second = 1e3
+const minute = second * 60
+const hour = minute * 60
 
-const extractTimeFromMs = (msLeft: number) => ({
-  hours: Math.floor(msLeft / hour).toString().padStart(2, '0'),
-  minutes: Math.floor((msLeft % hour) / minute).toString().padStart(2, '0'),
-  seconds: Math.ceil((msLeft % minute) / second).toString().padStart(2, '0'),
-});
+const formatTimeLeft = (msLeft: number) => {
+  const hours = Math.floor(msLeft / hour).toString().padStart(2, '0')
+  const minutes = Math.floor((msLeft % hour) / minute).toString().padStart(2, '0')
+  const seconds = Math.ceil((msLeft % minute) / second).toString().padStart(2, '0')
+  return `${hours}:${minutes}:${seconds}`
+}
 
 export const Countdown = ({ endTimestamp }: { endTimestamp: number }) => {
-  const getTimeLeft = React.useCallback<IntervalCallback<string>>(clear => {
-    const timeLeft = endTimestamp - Date.now()
-    if (timeLeft <= 0) {
-      clear()
-      return '00:00:00'
-    }
-
-    const interval = extractTimeFromMs(timeLeft)
-    return `${interval.hours}:${interval.minutes}:${interval.seconds}`
-  }, [endTimestamp]);
+  const getTimeLeft = React.useCallback<IntervalCallback<string>>(
+    clear => {
+      const timeLeft = endTimestamp - Date.now()
+      if (timeLeft <= 0) clear()
+      return formatTimeLeft(timeLeft < 0 ? 0 : timeLeft)
+    },
+    [endTimestamp]
+  )
 
   const time = useIntervalValue(1000, getTimeLeft)
 

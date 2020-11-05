@@ -2,7 +2,7 @@
   "name": "use-interval-value",
   "version": "1.0.0",
   "description": "Generate new values at intervals",
-  "author": "termosa",
+  "author": "Stanislav Termosa <termosa.stanislav@gmail.com> (https://me.st/)",
   "license": "MIT",
   "repository": "termosa/use-interval-value",
   "main": "dist/index.js",
